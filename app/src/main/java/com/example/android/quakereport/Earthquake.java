@@ -1,5 +1,8 @@
 package com.example.android.quakereport;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Emma Buchheim on 9/28/2017.
  */
@@ -15,7 +18,12 @@ public class Earthquake {
     public Earthquake(String magnitude, String location, String date) {
         mMagnitude = magnitude;
         mLocation = location;
-        mDate = date;
+
+        long timeInMilliseconds = 1454124312220L;
+        Date dateObject = new Date(timeInMilliseconds);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        String dateToDisplay = dateFormatter.format(dateObject);
+        mDate = dateToDisplay;
     }
 
     public String getMagnitude() {
@@ -29,4 +37,7 @@ public class Earthquake {
     public String getDate() {
         return mDate;
     }
+
+
+
 }
