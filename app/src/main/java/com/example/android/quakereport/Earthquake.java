@@ -9,24 +9,30 @@ import java.util.Date;
 
 public class Earthquake {
 
-    private String mMagnitude;
+    private double mMagnitude;
+
+    private long mTimeInMilliseconds;
 
     private String mLocation;
 
     private String mDate;
 
-    public Earthquake(String magnitude, String location, String date) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds) {
         mMagnitude = magnitude;
         mLocation = location;
+        mTimeInMilliseconds = timeInMilliseconds;
 
-        long timeInMilliseconds = 1454124312220L;
         Date dateObject = new Date(timeInMilliseconds);
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
         String dateToDisplay = dateFormatter.format(dateObject);
         mDate = dateToDisplay;
     }
 
-    public String getMagnitude() {
+    public long getTimeInMilliseconds() {
+        return mTimeInMilliseconds;
+    }
+
+    public double getMagnitude() {
         return mMagnitude;
     }
 
