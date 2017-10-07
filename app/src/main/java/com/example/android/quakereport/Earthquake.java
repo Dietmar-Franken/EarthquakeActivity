@@ -9,6 +9,8 @@ import java.util.Date;
 
 public class Earthquake {
 
+    private String mUrl;
+
     private double mMagnitude;
 
     private long mTimeInMilliseconds;
@@ -17,15 +19,20 @@ public class Earthquake {
 
     private String mDate;
 
-    public Earthquake(double magnitude, String location, long timeInMilliseconds) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
         mMagnitude = magnitude;
         mLocation = location;
         mTimeInMilliseconds = timeInMilliseconds;
+        mUrl = url;
 
         Date dateObject = new Date(timeInMilliseconds);
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
         String dateToDisplay = dateFormatter.format(dateObject);
         mDate = dateToDisplay;
+    }
+
+    public String getUrl() {
+        return mUrl;
     }
 
     public long getTimeInMilliseconds() {
